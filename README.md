@@ -113,7 +113,7 @@ Colsampler is not a replacement for batteries such as:
 
 - PractRand
 - TestU01
-- Smokerand
+- SmokeRand
 - Dieharder
 
 Instead, it is a complementary tool focused on one specific property:
