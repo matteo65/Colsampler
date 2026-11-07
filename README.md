@@ -118,6 +118,26 @@ Elapsed time: 00:02:58; Processed: 103.1 GB; Sample size: 3221162161; Collisions
 Elapsed time: 00:03:10; Processed: 111.7 GB; Sample size: 3489619949; Collisions: 1; Expected: 0.6
 Elapsed time: 00:03:22; Processed: 120.3 GB; Sample size: 3758062711; Collisions: 1; Expected: 0.6
 ...
+Elapsed time: 00:47:05; Processed: 1.8 TB; Sample size: 55566050417; Collisions: 14; Expected: 12.7
+Elapsed time: 00:47:17; Processed: 1.8 TB; Sample size: 55834509843; Collisions: 14; Expected: 12.7
+--------> Collision: 16663691300240050169
+Elapsed time: 00:47:31; Processed: 1.8 TB; Sample size: 56102953999; Collisions: 15; Expected: 12.8
+Elapsed time: 00:47:46; Processed: 1.8 TB; Sample size: 56371385032; Collisions: 15; Expected: 12.9
+Elapsed time: 00:47:59; Processed: 1.8 TB; Sample size: 56639820380; Collisions: 15; Expected: 12.9
+Elapsed time: 00:48:12; Processed: 1.8 TB; Sample size: 56908245983; Collisions: 15; Expected: 13.0
+Elapsed time: 00:48:31; Processed: 1.8 TB; Sample size: 57176671920; Collisions: 15; Expected: 13.1
+Elapsed time: 00:48:45; Processed: 1.8 TB; Sample size: 57445084932; Collisions: 15; Expected: 13.1
+Elapsed time: 00:48:59; Processed: 1.8 TB; Sample size: 57713531659; Collisions: 15; Expected: 13.2
+--------> Collision: 3499206484810381989
+
+SUCCESS: Target of 16 collisions reached
+
+Final Results:
+ - Elapsed time: 00:49:04
+ - Total data read: 231312375808 items (1850.50 GB)
+ - Total qualified items (sample size): 57827998727
+ - Total collisions observed: 16
+ - Total collisions expected: 13.2
 ```
 
 A healthy random stream should produce a collision count close to the theoretical expectation.
