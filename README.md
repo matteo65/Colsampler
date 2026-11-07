@@ -97,10 +97,27 @@ colsampler [small | large | huge [max_collisions [max_TB]]]
 ## Example Output
 
 ```text
-Elapsed time: 00:12:44; Processed: 1.0 TB;
-Sample size: 134233321;
-Collisions: 2;
-Expected: 1.8
+Colsampler v.1.0 - Copyright(C) 2026 Matteo Zapparoli
+Fast validator of a 64-bit stdin stream collision rate
+
+Target limits -> Max collisions: 16; Max data: 2.00 TB
+
+Elapsed time: 00:00:15; Processed: 8.6 GB; Sample size: 268432159; Collisions: 0; Expected: 0.0
+Elapsed time: 00:00:30; Processed: 17.2 GB; Sample size: 536867181; Collisions: 0; Expected: 0.0
+Elapsed time: 00:00:46; Processed: 25.8 GB; Sample size: 805324037; Collisions: 0; Expected: 0.1
+Elapsed time: 00:01:03; Processed: 34.4 GB; Sample size: 1073756305; Collisions: 0; Expected: 0.1
+Elapsed time: 00:01:19; Processed: 42.9 GB; Sample size: 1342180353; Collisions: 0; Expected: 0.1
+Elapsed time: 00:01:36; Processed: 51.5 GB; Sample size: 1610592308; Collisions: 0; Expected: 0.2
+Elapsed time: 00:01:50; Processed: 60.1 GB; Sample size: 1879027044; Collisions: 0; Expected: 0.2
+Elapsed time: 00:02:04; Processed: 68.7 GB; Sample size: 2147461314; Collisions: 0; Expected: 0.3
+Elapsed time: 00:02:19; Processed: 77.3 GB; Sample size: 2415882501; Collisions: 0; Expected: 0.3
+Elapsed time: 00:02:32; Processed: 85.9 GB; Sample size: 2684287537; Collisions: 0; Expected: 0.4
+Elapsed time: 00:02:45; Processed: 94.5 GB; Sample size: 2952711733; Collisions: 0; Expected: 0.5
+Elapsed time: 00:02:58; Processed: 103.1 GB; Sample size: 3221162161; Collisions: 0; Expected: 0.5
+--------> Collision: 12485701123366245464
+Elapsed time: 00:03:10; Processed: 111.7 GB; Sample size: 3489619949; Collisions: 1; Expected: 0.6
+Elapsed time: 00:03:22; Processed: 120.3 GB; Sample size: 3758062711; Collisions: 1; Expected: 0.6
+...
 ```
 
 A healthy random stream should produce a collision count close to the theoretical expectation.
@@ -121,6 +138,9 @@ Instead, it is a complementary tool focused on one specific property:
 > Does the stream produce the expected number of exact 64-bit collisions?
 
 This makes it particularly useful for long-running validation campaigns where trillions of values must be processed with minimal overhead.
+
+## Version
+1.0
 
 ## License
 
