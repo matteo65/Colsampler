@@ -100,7 +100,7 @@ colsampler [small | large | huge [max_collisions [max_TB]]]
 Colsampler v.1.0 - Copyright(C) 2026 Matteo Zapparoli
 Fast validator of a 64-bit stdin stream collision rate
 
-Target limits -> Max collisions: 16; Max data: 2.00 TB
+Mode: small; Target limits -> Max collisions: 16; Max data: 2.00 TB
 
 Elapsed time: 00:00:15; Processed: 8.6 GB; Sample size: 268432159; Collisions: 0; Expected: 0.0
 Elapsed time: 00:00:30; Processed: 17.2 GB; Sample size: 536867181; Collisions: 0; Expected: 0.0
