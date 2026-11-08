@@ -108,6 +108,7 @@ static double check_statistical_anomaly(uint64_t filtered_count, size_t real_col
 static void check_filter_anomaly(uint64_t total_read, uint64_t filtered_count);
 static int is_valid_size_t(const char *str, size_t *out_value);
 static int is_valid_double(const char *str, double *out_value);
+static uint64_t get_available_memory(void);
 
 int main(int argc, char *argv[])
 {
@@ -184,6 +185,16 @@ int main(int argc, char *argv[])
 			filter_probability = 1.0;
 			break;
 	}
+	
+	uint64_t MemAvailable = get_available_memory();
+	uint64_t need = array_length * sizeof(uint32_t);
+	
+	// Check if there is RAM available for array allocation without swap
+	if(need > MemAvailable * 0.7) {
+		fatal_error("Required %.1f GB of RAM but available only %.1f GB\n",
+                    need / (1024.0 * 1024 * 1024),
+                    MemAvailable / (1024.0 * 1024 * 1024));
+	}
 
 	array = (uint32_t*)calloc(array_length, sizeof(uint32_t));
 
@@ -191,7 +202,7 @@ int main(int argc, char *argv[])
 		fatal_error("No memory available");
 	}
 
-	printf("Target limits -> Max collisions: ");
+	printf("Mode: %s; Target limits -> Max collisions: ", argv[1]);
 	if(max_collisions) {
 		printf("%zu", max_collisions);
 	}
@@ -464,4 +475,23 @@ static int is_valid_double(const char *str, double *out_value)
 	if(out_value) *out_value = d;
 
 	return 1;
+}
+
+static uint64_t get_available_memory(void)
+{
+    FILE *fp = fopen("/proc/meminfo", "r");
+    if (!fp)
+        return 0;
+
+    char line[256];
+    size_t avail_kb = 0;
+
+    while (fgets(line, sizeof(line), fp)) {
+        if (sscanf(line, "MemAvailable: %zu kB", &avail_kb) == 1)
+            break;
+    }
+
+    fclose(fp);
+
+    return avail_kb * 1024ULL;
 }
