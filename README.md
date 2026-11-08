@@ -83,15 +83,15 @@ colsampler [small | large | huge [max_collisions [max_TB]]]
 ### Examples
 
 ```bash
-./my_prng | colsampler small
+./my_prng | ./colsampler small
 ```
 
 ```bash
-./my_prng | colsampler large 32
+./my_prng | ./colsampler large 32
 ```
 
 ```bash
-./my_prng | colsampler huge 64 10
+./my_prng | ./colsampler huge 64 10
 ```
 
 ## Example Output
