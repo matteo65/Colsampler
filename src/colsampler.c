@@ -186,14 +186,14 @@ int main(int argc, char *argv[])
 			break;
 	}
 	
-	uint64_t MemAvailable = get_available_memory();
+	uint64_t mem_available = get_available_memory();
 	uint64_t need = array_length * sizeof(uint32_t);
 	
 	// Check if there is RAM available for array allocation without swap
-	if(need > MemAvailable * 0.7) {
+	if(need > mem_available * 0.7) {
 		fatal_error("Required %.1f GB of RAM but available only %.1f GB\n",
                     need / (1024.0 * 1024 * 1024),
-                    MemAvailable / (1024.0 * 1024 * 1024));
+                    mem_available / (1024.0 * 1024 * 1024));
 	}
 
 	array = (uint32_t*)calloc(array_length, sizeof(uint32_t));
